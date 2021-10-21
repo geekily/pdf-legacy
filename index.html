@@ -9,5 +9,31 @@
 <br/>
 <iframe src="pdfjs-legacy/web/viewer.html?file=test.pdf" style="width:1200px; height:1200px; border:1px solid #00c;"></iframe>
 
+
+<button id="share" class="share">MOBILE</button>
+
+<script type="text/javascript">
+function shareButton(sharedUrl) {
+	
+	const btnAppShare = document.querySelector('#share');
+
+	btnAppShare.addEventListener('click', async () => {
+		try {
+			await navigator.share({
+				title: "AL360",
+				text: "세상의 모든 공간을 담아내는 플랫폼, AL360 서비스입니다.",
+				url: sharedUrl,
+			});
+		//console.log("공유 성공");
+		} catch (e) {
+		//console.log("공유 실패");
+		}
+	});
+
+}
+
+shareButton('http://www.hiphople.com');
+</script>
+
 </body>
 </html>
